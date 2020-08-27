@@ -16,10 +16,10 @@ namespace SerializableDictionaryDemo
 
         public void ReadXml(XmlReader reader)
         {
-            reader.Read();
             XmlSerializer KeySerializer = new XmlSerializer(typeof(TKey));
             XmlSerializer ValueSerializer = new XmlSerializer(typeof(TValue));
 
+            reader.Read();
             while (reader.NodeType != XmlNodeType.EndElement)
             {
                 TKey tk = (TKey)KeySerializer.Deserialize(reader);
